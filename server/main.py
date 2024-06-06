@@ -62,6 +62,29 @@ class Card(db.Model):
 
     def __repr__(self):
         return f"<Card {self.name}>"
+    
+# @app.route('/', methods=['GET'])
+# def get_title():
+#     titles = Title.query.all()
+#     result = []
+#     for title in titles:
+#         title_data = {
+#             'id': title.id,
+#             'title': title.title,
+#             'author': title.author,
+#             'cards': []
+#         }
+#         for card in title.cards:
+#             card_data = {
+#                 'id': card.id,
+#                 'title_id': card.title_id,
+#                 'name': card.name,
+#                 'category': card.category,
+#                 'difficulty': card.difficulty
+#             }
+#             title_data['cards'].append(card_data)
+#         result.append(title_data)
+#     return jsonify(result), 200
 
 @app.route('/api/cards', methods=['POST'])
 def create_game():
