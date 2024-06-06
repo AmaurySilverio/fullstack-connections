@@ -32,16 +32,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Initialize the SQLAlchemy object with the app.
 db = SQLAlchemy(app)
 
-# client_folder = os.path.join(os.cwd(),"..","client")
-# dist_folder = os.path.join(client_folder,"dist")
-
-# react_app
-# @app.route("/",defaults={"filename":""})
-# @app.route("/<path:filename>")
-# def index(filename):
-#     if not filename:
-#         filename = "index.html"
-#     return send_from_directory(dist_folder,filename)
 # Model for the titles.
 class Title(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -63,28 +53,9 @@ class Card(db.Model):
     def __repr__(self):
         return f"<Card {self.name}>"
     
-# @app.route('/', methods=['GET'])
-# def get_title():
-#     titles = Title.query.all()
-#     result = []
-#     for title in titles:
-#         title_data = {
-#             'id': title.id,
-#             'title': title.title,
-#             'author': title.author,
-#             'cards': []
-#         }
-#         for card in title.cards:
-#             card_data = {
-#                 'id': card.id,
-#                 'title_id': card.title_id,
-#                 'name': card.name,
-#                 'category': card.category,
-#                 'difficulty': card.difficulty
-#             }
-#             title_data['cards'].append(card_data)
-#         result.append(title_data)
-#     return jsonify(result), 200
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
 
 @app.route('/api/cards', methods=['POST'])
 def create_game():
