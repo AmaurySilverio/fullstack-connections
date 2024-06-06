@@ -1,6 +1,6 @@
 import axios from "axios";
 const baseUrl =
-  "postgres://admin:lW0JKBaIWUSygIj3nkSitqtMxufc1W9b@dpg-cpgc2s6ct0pc73db59n0-a.oregon-postgres.render.com/connections_bqpd";
+  "postgresql://admin:lW0JKBaIWUSygIj3nkSitqtMxufc1W9b@dpg-cpgc2s6ct0pc73db59n0-a.oregon-postgres.render.com/connections_bqpd";
 
 const getTitles = async () => {
   const response = await axios.get(`${baseUrl}/cards`);
