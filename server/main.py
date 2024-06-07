@@ -37,7 +37,7 @@ class Title(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     author = db.Column(db.String(80), nullable=True)
-    cards = db.relationship('Card', backref='title', lazy=True)
+    cards = db.relationship('Card', backref='title', lazy=True, cascade='all, delete-orphan')
 
     def __repr__(self):
         return f"<Title {self.title}>"
@@ -130,6 +130,18 @@ def get_game(title_id):
         }
         title_data['cards'].append(card_data)
     return jsonify(title_data), 200
+
+@app.route('/api/cards/<int:title_id>', methods=['DELETE'])
+def delete_game(title_id):
+    title = Title.query.get(title_id)
+    
+    if title is None:
+        return jsonify({"error": "Title not found"}), 404
+
+    db.session.delete(title)
+    db.session.commit()
+    
+    return jsonify({"message": "Title and associated cards deleted successfully"}), 200
 
 if __name__ == "__main__":
     # Create database tables
