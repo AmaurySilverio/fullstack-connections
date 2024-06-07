@@ -6,18 +6,18 @@ import axios from "axios";
 // const baseUrl = "35.160.120.126";
 
 const getTitles = async () => {
-  const response = await axios.get(`${import.meta.env.VITE_baseUrl}/cards`);
+  const response = await axios.get(`${import.meta.env.VITE_baseUrl}cards`);
   return response.data;
 };
 const getCustomGame = async (id) => {
   const response = await axios.get(
-    `${import.meta.env.VITE_baseUrl}/cards/${id}`
+    `${import.meta.env.VITE_baseUrl}cards/${id}`
   );
   return response.data;
 };
 const create = async (newCustomGame) => {
   const response = await axios.post(
-    `${import.meta.env.VITE_baseUrl}/cards`,
+    `${import.meta.env.VITE_baseUrl}cards`,
     newCustomGame
   );
   console.log(response);
