@@ -4,25 +4,37 @@ import TitleTags from "../components/TitleTags";
 
 const CustomGames = () => {
   const [gameTitles, setGameTitles] = useState([]);
+  const [loadingTitles, setLoadingTitles] = useState(false);
+  const [titlesLoaded, setTitlesLoaded] = useState(false);
 
   useEffect(() => {
     ConnectionsService.getTitles().then((gameData) => {
       setGameTitles(gameTitles.concat(gameData));
+      setTitlesLoaded(true);
     });
   }, []);
+  useEffect(() => {
+    if (titlesLoaded) {
+      setLoadingTitles(true);
+    }
+  }, [titlesLoaded, gameTitles]);
 
   return (
     <>
-      <div className="custom-games-container">
-        {gameTitles.map((info) => (
-          <TitleTags
-            key={info.id}
-            title_id={info.id}
-            title={info.title}
-            author={info.author}
-          />
-        ))}
-      </div>
+      {loadingTitles ? (
+        <div className="custom-games-container">
+          {gameTitles.map((info) => (
+            <TitleTags
+              key={info.id}
+              title_id={info.id}
+              title={info.title}
+              author={info.author}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="loader"></div>
+      )}
     </>
   );
 };

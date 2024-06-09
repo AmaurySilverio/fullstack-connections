@@ -13,6 +13,7 @@ function App() {
           <Route path="/creategame" element={<CreateGame />} />
           <Route path="/customgames" element={<CustomGames />} />
           <Route path="/customgame/:title_id" element={<CustomGame />} />
+          {/* <Route path="/customgame/:title_id" element={<CustomGame />} /> */}
         </Route>
       </Routes>
     </Router>

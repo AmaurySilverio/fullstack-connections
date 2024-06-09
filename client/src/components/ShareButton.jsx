@@ -4,7 +4,7 @@ const ShareButton = ({ resultsData, title, author }) => {
   const [copiedResults, setCopiedResults] = useState(false);
 
   const handleShareClick = () => {
-    let copyData = `${title} by ${author} ${resultsData.join("")}`;
+    let copyData = `${title} \nby ${author} \n${resultsData.join("")}`;
     navigator.clipboard.writeText(copyData);
 
     // Alert the copied text

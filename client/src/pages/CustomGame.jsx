@@ -38,6 +38,7 @@ const CustomGame = () => {
   const [newGame, setNewGame] = useState([]);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [gameDataLoaded, setGameDataLoaded] = useState(false);
 
   useEffect(() => {
     ConnectionsService.getCustomGame(title_id).then((gameData) => {
@@ -91,17 +92,26 @@ const CustomGame = () => {
         },
       ];
       setSortedCategories(sortedCategories.concat(sortedCategoriesArr));
+      setGameDataLoaded(true);
     });
   }, []);
 
+  // useEffect(() => {
+  //   let currentGame = [...newGame];
+  //   shuffleArray(currentGame);
+  //   setCategoriesArr(currentGame);
+  // }, [loadingGame]);
+  // setTimeout(() => {
+  //   setLoadingGame(true);
+  // }, 2000);
   useEffect(() => {
-    let currentGame = [...newGame];
-    shuffleArray(currentGame);
-    setCategoriesArr(currentGame);
-  }, [loadingGame]);
-  setTimeout(() => {
-    setLoadingGame(true);
-  }, 2000);
+    if (gameDataLoaded) {
+      let currentGame = [...newGame];
+      shuffleArray(currentGame);
+      setCategoriesArr(currentGame);
+      setLoadingGame(true);
+    }
+  }, [gameDataLoaded, newGame]);
 
   // SHUFFLE FUNCTION
   const shuffleArray = (array) => {
@@ -165,6 +175,11 @@ const CustomGame = () => {
         difficulty: cardDifficulty,
       };
       setCompareCards(compareCards.concat(clickedCard));
+      // better way to update state - christina
+      // setCompareCards(prevState => {
+      //   let updatedState = { ...prevState }
+      //   return updatedState
+      // })
       let cardClicked = event.target;
       setClickedCardsCopy(clickedCardsCopy.concat(cardClicked));
     }

@@ -69,6 +69,7 @@ const WinnerModal = ({
       attemptsVisualGrid.append(attemptBlock);
       if (count % 4 === 0) {
         resultsData.push(" ");
+        resultsData.push("\n");
       }
     });
   };
