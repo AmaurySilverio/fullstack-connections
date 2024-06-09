@@ -429,6 +429,9 @@ button[id~="submit"]{
   gap: 15px;
   padding: 10px 15px;
 }
+.custom-games-container > a{
+  width: fit-content;
+}
 .custom-games-container > p{
   cursor: pointer;
 }
