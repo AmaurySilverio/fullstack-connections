@@ -710,7 +710,7 @@ button[id~="submit"]{
     padding: 6px; 
   }
   .grid > div{
-    font-size: 1.5vh;
+    font-size: 1.6vh;
     padding: 1px;
     font-weight: 680;
     overflow-wrap: unset;
@@ -761,6 +761,12 @@ button[id~="submit"]{
     width: 70%;
     margin: 0 auto;
   } 
+  .banner-title{
+    font-size: 1.8vh;
+  }
+  .banner-cardname-container{
+    font-size: 1.5vh;
+  }
   .delete-blurb{
     padding: 0px 37px;
     font-size: 0.7rem;

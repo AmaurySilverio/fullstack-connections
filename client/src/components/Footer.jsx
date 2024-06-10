@@ -12,9 +12,8 @@ const Footer = () => {
           &copy; 2024
         </div>
         <div className="delete-blurb">
-          To delete a game you made, email me at{" "}
-          <span className="email">amaurycodes@gmail.com</span> and i'll remove
-          it for you.
+          To delete a game you made or chat, email me at{" "}
+          <span className="email">amaurycodes@gmail.com</span>
         </div>
       </div>
     </>

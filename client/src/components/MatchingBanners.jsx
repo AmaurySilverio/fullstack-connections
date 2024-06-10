@@ -1,7 +1,7 @@
 const MatchingBanners = ({ names, category, id }) => {
   return (
     <div className="col-span-4" id={id}>
-      <div>
+      <div className="banner-title">
         {category}
         <br></br>
         <div className="banner-cardname-container">
