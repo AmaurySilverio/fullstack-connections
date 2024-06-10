@@ -187,7 +187,10 @@ const CustomGame = () => {
   // SUBMIT BUTTON FUNCTION
   const handleSubmit = (event) => {
     let cards = event.target.parentElement.parentElement.children[0].children;
-    let submittedCards = Array.from(cards).filter((card) => card.attributes[4]);
+    // let submittedCards = Array.from(cards).filter((card) => card.attributes[4]);
+    let submittedCards = Array.from(cards).filter(
+      (card) => card.getAttribute("data-status") === "clicked"
+    );
     submittedCards.map((card) => card.setAttribute("class", "card-submitted"));
 
     let attemptedCardsDifficulty = compareCards.map((card) => card.difficulty);
