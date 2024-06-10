@@ -710,7 +710,8 @@ button[id~="submit"]{
     padding: 6px; 
   }
   .grid > div{
-    font-size: 1.7vh;
+    /* font-size: 1.7vh; */
+    font-size: 0.9em;
     padding: 1px;
     font-weight: 680;
     overflow-wrap: unset;
