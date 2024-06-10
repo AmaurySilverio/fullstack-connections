@@ -23,7 +23,7 @@ const Card = ({ name, onClick, category, difficulty, id }) => {
         onClick={onClick}
         data-category={category}
         data-difficulty={difficulty}
-        style={isMobile && name.length >= 9 ? { fontSize: "0.85em" } : {}}
+        style={isMobile && name.length >= 9 ? { fontSize: "0.77em" } : {}}
       >
         {name}
       </div>
