@@ -18,7 +18,7 @@ const CustomGame = () => {
   // useParams for featured game
   let { title_id } = useParams();
   if (title_id == null) {
-    title_id = 1;
+    title_id = "668ca92ac384e03aeabab75f";
   }
   const [shuffle, setShuffle] = useState(false);
   const [cardCount, setCardCount] = useState(0);
@@ -280,13 +280,14 @@ const CustomGame = () => {
       }, 2000);
     }
     if (allEqual(selectedCardsArr)) {
+      //adds bounce animation
       setTimeout(() => {
         submittedCards.map((card) =>
           card.setAttribute("class", "correct-guess")
         );
       }, 1000);
 
-      let matchedCardIds = clickedCardsCopy.map((card) => Number(card.id));
+      let matchedCardIds = clickedCardsCopy.map((card) => card.id);
       let matchedCardsCategory = compareCards.map((card) => card.difficulty);
 
       matchedCardIds.sort((a, b) => a - b);
