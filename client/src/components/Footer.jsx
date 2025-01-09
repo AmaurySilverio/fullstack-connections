@@ -9,7 +9,7 @@ const Footer = () => {
           <a href="https://amaurycodes.netlify.app" target="_blank">
             Amaury
           </a>{" "}
-          &copy; 2024
+          &copy; 2025
         </div>
         <div className="delete-blurb">
           To delete a game you made or chat, email me at{" "}
