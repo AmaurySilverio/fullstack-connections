@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="made-by">
           made by{" "}
-          <a href="https://amaurycodes.netlify.app" target="_blank">
+          <a href="https://amaurycodes.onrender.com/" target="_blank">
             Amaury
           </a>{" "}
           &copy; 2025
